@@ -4,7 +4,7 @@ Python Make Test Client
 
 
 ```python
-from mt import MakeTestClient
+from pymtc import MakeTestClient
 
 
 make_test_client = MakeTestClient(token=None)
