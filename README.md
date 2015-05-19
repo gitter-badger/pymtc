@@ -3,7 +3,7 @@
 Python Make Test Client
 
 
-'''python
+```python
 from mt import MakeTestClient
 
 
@@ -24,4 +24,4 @@ for message in message_index:
 # Step 3. Load message
 message_content = make_test_client.messageFetch(message_id)
 print("Content:\n\n {content}".format(content=message_content))
-'''
+```
