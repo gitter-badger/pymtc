@@ -1,7 +1,14 @@
 # pymtc
 
-Python Make Test Client
+## Install
 
+Do follow command in your shell:
+
+    python ./setup.py install
+
+## Usage
+
+Create source some like that:
 
 ```python
 from pymtc import MakeTestClient
