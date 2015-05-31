@@ -1,27 +1,32 @@
 # pymtc
 
-Python Make Test Client
+Python Make Test Client version 1.1
 
 
 ```python
-from pymtc import MakeTestClient
+import pymtc
 
 
-make_test_client = MakeTestClient(token=None)
-
-# Step 1. Count message
-count = make_test_client.messageCount(mailbox="101")
-print("Mainbox contain {count} message".format(count=count))
-
-# Step 2. List message
-message_index = make_test_client.messageIndex(mailbox="101")
-message_id = None
-for message in message_index:
-    message_id = message.get_msg_id()
-    print("Message: msg_id = {msg_id!r}".format(msg_id=message_id))
+# Prepare variable and client
+user = 'audiopoisk21'
+client = pymtc.MakeTestClient()
 
 
-# Step 3. Load message
-message_content = make_test_client.messageFetch(message_id)
-print("Content:\n\n {content}".format(content=message_content))
+# Step 1. Fetc message count
+print client.messageCount(user)
+
+# Step 2. Fetch index
+items = client.messageIndex(user)
+print items
+
+# Step 3. Fetch message
+for item in items:
+    msgid = item.get_msgid()
+    msg = client.messageFetch(msgid=msgid)
+    print msg
+
+
+# Step 4. Dispose clisent
+client.dispose()
+client = None
 ```

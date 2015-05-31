@@ -6,19 +6,26 @@ import json
 
 
 class MakeTestMessage(object):
-    def __init__(self, domain=None, local=None, id=None):
-        self.__domain = domain
-        self.__local = local
-        self.__id = id
+    def __init__(self, **kwargs):
+        self.__domain = kwargs.get('domain')
+        self.__local = kwargs.get('local')
+        self.__id = kwargs.get('id')
+        self.__msgid = kwargs.get('msgid')
 
-    def get_msg_id(self):
-        return self.__id
+    def get_msgid(self):
+        return self.__msgid
+
+    def __repr__(self):
+        return "<MakeTestMessage msgid={msgid!r}>".format(msgid=self.__msgid)
 
 
 class MakeTestClient(object):
     def __init__(self, token=None):
         self.__token = token
         self.__version = "1.0"
+
+    def dispose(self):
+        pass
 
     def messageCount(self, mailbox):
         query = urllib.urlencode({'token': self.__token, "local": mailbox})
@@ -59,9 +66,9 @@ class MakeTestClient(object):
                 result.append(m)
         return result
 
-    def messageFetch(self, msg_id):
+    def messageFetch(self, msgid):
         result = None
-        query = urllib.urlencode({'token': self.__token, "id": msg_id})
+        query = urllib.urlencode({'token': self.__token, "msgid": msgid})
         headers = {
             "X-Client-Version": self.__version,
         }
