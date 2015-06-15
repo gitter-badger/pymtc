@@ -32,7 +32,7 @@ class MakeTestClient(object):
         headers = {
             "X-Client-Version": self.__version,
         }
-        conn = httplib.HTTPConnection("make-test.com")
+        conn = httplib.HTTPConnection("www.make-test.com")
         uri = "{path}?{query}".format(path="/msg_count", query=query)
         conn.request("GET", uri, None, headers)
         response = conn.getresponse()
@@ -50,7 +50,7 @@ class MakeTestClient(object):
         headers = {
             "X-Client-Version": self.__version,
         }
-        conn = httplib.HTTPConnection("make-test.com")
+        conn = httplib.HTTPConnection("www.make-test.com")
         uri = "{path}?{query}".format(path="/msg_index", query=query)
         conn.request("GET", uri, None, headers)
         response = conn.getresponse()
@@ -72,7 +72,7 @@ class MakeTestClient(object):
         headers = {
             "X-Client-Version": self.__version,
         }
-        conn = httplib.HTTPConnection("make-test.com")
+        conn = httplib.HTTPConnection("www.make-test.com")
         uri = "{path}?{query}".format(path="/msg", query=query)
         conn.request("GET", uri, None, headers)
         response = conn.getresponse()
