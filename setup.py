@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "pymtc",
-    version = "1.1",
+    version = "1.2",
     author = "Vitold Sedyshev",
     author_email = "vit1251@gmail.com",
     description = "Make Test Client",
